@@ -5,6 +5,7 @@ import config
 
 bot = interactions.Client(token=config.getConfig("bot_token"))
 
+#This command will return the price of a stock by checking an external API, and returning the value
 @slash_command(name="stonks", description="Check on the stonks")
 @slash_option(
     name="stonk",
@@ -20,6 +21,7 @@ async def my_command_function(ctx: SlashContext, stonk):
     if price != "" and price != None:
         await ctx.send(f"The ask price for {stonk} is {price}")
 
+#This command will return a series of news articles related to a certain stock ticker
 @slash_command(name="news", description="Whats happening with the stonk")
 @slash_option(
     name="stonk_news",
